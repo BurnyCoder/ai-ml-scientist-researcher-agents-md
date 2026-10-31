@@ -1,6 +1,6 @@
 ## Research existing work and cite sources
 
-When starting a research project, or when solving something, or when you're stuck on something: Search the internet if someone didn't already solve it and how others deal with it. First, do a literature review of papers, GitHub repos, HuggingFace, Kaggle, guides, forums, discussions, libraries, docs, etc., to see what similar or the same things already exist, and build on top of their insights, code, math, results, solutions, empirical data, models, theory, etc. Or use their solution. You can directly import or copy things, like the math and code, but also check that the license is compatible. If no one solved the same problem directly, find as close solution/s as possible and reuse the components that can be reused. Make sure to cite them and link to the source. Cite everything. 
+When starting a research project, or when solving something, or when you're stuck on something: Search the internet if someone didn't already solve it and how others deal with it. First, do a literature review of papers, GitHub repos, HuggingFace, Kaggle, guides, forums, discussions, libraries, docs, etc., to see what similar or the same things already exist, and build on top of their insights, code, math, results, solutions, empirical data, models, theory, etc. Or use their solution. You can directly import or copy things, like the math and code, but also check that the license is compatible. If no one solved the same problem directly, find as close solution/s as possible and reuse the components that can be reused. Keep in mind you can use data engineering, architectural, optimizer, etc. methods/insights from similar enough fields in similar enough resources, etc., that might transfer here. Make sure to cite them and link to the source. Cite everything. 
 Make sure to double-check that you actually follow the sources to minimize hallucinations. 
 
 ## Scientific mindset and role models
@@ -126,19 +126,19 @@ Compress the empirical results. Compress the research.
 
 ## Paper
 
-In the paper, include an abstract, context, motivation, introduction, background, method, results, claims, implications, figures, related work, discussion, limitations, conclusion, appendices, etc. 
+Include an abstract, context, motivation, introduction, background, method, results, claims, implications, figures, related work, discussion, limitations, conclusion, appendices, etc. 
 
-Include both positive and negative results in the paper. What was tested, falsified, and verified.
+Include both positive and negative results. What was tested, falsified, and verified.
 
-Make sure to include as many citations with links to the sources as possible in the paper.
+Make sure to include as many citations with links to the sources as possible.
 
 Make sure the reports and paper have citations and sources for every claim with empirical results, other papers, etc. 
 
-Do not add fluff filler words and sentences without technical meaning in the paper. Make sure the claims in the paper are sourced and correspond to specific empirical results and technical results. 
+Do not add fluff filler words and sentences without technical meaning. Make sure the claims are sourced and correspond to specific empirical results and technical results. 
+
+Optimize for human readability and technical precision.
 
 Mention Libor “Burny” Burian as the author of the paper. 
-
-## README.md and paper  
 
 Add a table showcasing eval scores for new method(s), baseline(s), control(s) (random controls, etc.), ablation(s).
 
@@ -168,13 +168,19 @@ Then go into more detail.
 
 Describe the methodology (model, data, training, eval, etc.) and how to use the repo.
 
+Optimize for human readability and technical precision. 
+
+Add a table showcasing eval scores for new method(s), baseline(s), control(s) (random controls, etc.), ablation(s).
+
+Add visualizations output examples for new method(s), baseline(s), control(s) (random controls, etc.), ablation(s).
+
+Mention, in plainer language, where the new methods got better or worse than in baseline(s), control(s) (random controls, etc.), ablation(s). 
+
 Summarize what happens as you run the project, like data flow, etc., so that user has an idea what's happening as he runs it.
 
 List the features that the repo has and which technologies are used. 
 
 Add a graph-based visualization of the architecture.
-
-Mention, in plainer language, where the new methods got better or worse than in baseline(s), control(s) (random controls, etc.), ablation(s).
 
 Make sure that how to install, set up, and use everything is included.
 
