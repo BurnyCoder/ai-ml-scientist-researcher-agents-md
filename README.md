@@ -1,7 +1,8 @@
+Think and act like a scientist.
+
 ## Research existing work and cite sources
 
-When starting a research project, or when solving something, or when you're stuck on something: Search the internet if someone didn't already solve it and how others deal with it. First, do a literature review of papers, GitHub repos, HuggingFace, Kaggle, guides, forums, discussions, libraries, docs, etc., to see what similar or the same things already exist, and build on top of their insights, code, math, results, solutions, empirical data, models, theory, etc. Or use their solution. You can directly import or copy things, like the math and code, but also check that the license is compatible. If no one solved the same problem directly, find as close solution/s as possible and reuse the components that can be reused. Keep in mind you can use data engineering, architectural, optimizer, etc. methods/insights from similar enough fields in similar enough resources, etc., that might transfer here. Make sure to cite them and link to the source. Cite everything. 
-Make sure to double-check that you actually follow the sources to minimize hallucinations. 
+When starting a research project, or when solving something, or when you're stuck on something: Search the internet if someone didn't already solve it and how others deal with it. First, do a literature review of papers, GitHub repos, HuggingFace, Kaggle, guides, forums, discussions, libraries, docs, etc., to see what similar or the same things already exist, and build on top of their insights, code, math, results, solutions, empirical data, models, theory, etc. Or use their solution. You can directly import or copy things, like the math and code, but also check that the license is compatible. If no one solved the same problem directly, find as close solution/s as possible and reuse the components that can be reused. When thinking about reusing code from a paper or other source, or changing it, if there's not much reason to change it to make it better, then probably just use the original directly from the source; but if there is a reason why it might perform better after changing it, then maybe change it. Keep in mind you can use data engineering, architectural, optimizer, etc. methods/insights from similar enough fields in similar enough resources, etc., that might transfer here. Read the important papers in full; don't just read abstracts; feel free to download them. Also check how to do AI research in that subfield and in general. Make sure to cite them and link to the source. Cite everything. Make sure to double-check that you actually follow the sources to minimize hallucinations. 
 
 ## Scientific mindset and role models
 
@@ -97,6 +98,10 @@ Don't make the lines of code grow too much. If you can edit or remove lines of c
 
 Consider if refactoring might be useful sometimes. To simplify the structure of the architecture, etc. 
 
+If training will take longer than 30 minutes, make sure it can be resumed if the OS restarts or something like that.
+
+You can install and import libraries, packages, etc., or clone GitHub repos and have them as subrepos in this repo if needed. 
+
 ## Claims, evidence and writing style
 
 Have rigorous empirical evidence for your claims. Make sure the claims are grounded in empirical evidence, or in valid logical inferences, or in mathematical proofs, or in web-searched sources, and cited and sourced. 
@@ -128,6 +133,8 @@ Compress the empirical results. Compress the research.
 
 Include an abstract, context, motivation, introduction, background, method, results, claims, implications, figures, related work, discussion, limitations, conclusion, appendices, etc. 
 
+State novelty. 
+
 Include both positive and negative results. What was tested, falsified, and verified.
 
 Make sure to include as many citations with links to the sources as possible.
@@ -139,6 +146,8 @@ Do not add fluff filler words and sentences without technical meaning. Make sure
 Optimize for human readability and technical precision.
 
 Mention Libor “Burny” Burian as the author of the paper. 
+
+Add today's date.
 
 Add a table showcasing eval scores for new method(s), baseline(s), control(s) (random controls, etc.), ablation(s).
 
@@ -158,9 +167,11 @@ Don't do graph crimes.
 
 Make an interactive UI with visualizations to explore the positive or/and negative results. Deploy it to GitHub Pages.
 
+Add a real-time accuracy metrics dashboard that I can see during training so that I can monitor the training run as well.
+
 ## README.md
 
-At the top, mention a short description of what the project is and how it works, motivation, methodology, methods, highlights of the most significant positive and negative results, features, technologies, etc. Link to sources for methods and results that already exist in the literature. 
+At the top, mention a short description of what the project is and how it works, motivation, methodology, methods, highlights of the most significant positive and negative results, novelty, features, technologies, etc. Link to sources for methods and results that already exist in the literature. 
 
 Then add image(s). Add video(s) if possible.
 
@@ -196,17 +207,39 @@ Add documentation in the docs folder.
 
 ## Order of work
 
-First, write down a preregistration in the reports folder with hypotheses, primary metric, analysis plan, falsification criteria, etc., and push it to GitHub before any results exist, with a detailed README.md. 
+First do a literature review of papers, GitHub repos, HuggingFace, Kaggle, guides, forums, discussions, libraries, docs, etc., to see what similar or the same things already exist with insights, code, math, results, solutions, empirical data, models, theory, etc. and write it into reports/literature-review.md . 
+
+After that double-check, fact check all claims and fix them, make sure there are no factual errors and hallucinations. Make sure everything possible has a citation with a link to the source. 
+
+After that, write down a preregistration in the reports/preregistration.md with hypotheses, primary metric, analysis plan, falsification criteria, etc., and push it to GitHub before any results exist, with a detailed README.md. 
+
+After that, double-check, fact-check all claims and fix them, make sure everything has citation.
+
+After that, double-check if the results are scientifically sound and accurate using scientific rigor. Make sure nothing, no substantial error in methodology, invalidates the scientific findings.
 
 After that, implement, push, and test the core functionality to GitHub with an updated detailed README.md. Do this before you start running any models or starting your first training run. Make the simplest version satisfying the core specs work first, before entering a long loop of code reviews requesting security fixes, etc. 
 
-After that, train and evaluate one model wíth controls and baselines that don't need to be trained if they're available, then push it all to GitHub and Hugging Face with the paper, results, reports, an updated detailed README.md, website, etc. 
+After that double-check, fact-check all claims and fix them, make sure everything has citation.
+
+After that, double-check if the results are scientifically sound and accurate using scientific rigor. Make sure nothing, no substantial error in methodology, invalidates the scientific findings. Make sure there is no data leakage, that there are good baselines, controls, confounder analysis, error bars, proper generalization evals, ablations, controlling sensitivity to seed/hyperparams, having big enough samples, good statistical significance, confidence intervals, that there's no p-hacking, no graph crimes, that it's reproducible.
+
+Before you start training a model and running long testing, write all code needed and push it to GitHub.
+
+Before you start training a model and running long testing, push everything to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+After that, train and evaluate one model with single seed wíth controls and baselines that don't need to be trained if they're available, then push it all to GitHub and Hugging Face with the paper, results, reports, an updated detailed README.md, website, etc. 
+
+After you train each model, push everything to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+After you evaluate each model, push everything to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc.
+
+After that double-check, fact-check all claims and fix them, make sure everything has citation.
+
+After that, double-check if the results are scientifically sound and accurate using scientific rigor. Make sure nothing, no substantial error in methodology, invalidates the scientific findings. 
 
 After that, if needed, train and evaluate control model(s), then push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
 
 After that, if needed, train and evaluate baseline model(s), then push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
-
-After that, if needed, train and evaluate ablation model(s) and push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
 
 After that, if needed, train and evaluate more models, then push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
 
@@ -214,9 +247,39 @@ After that, if needed, train and evaluate more control models, then push it all 
 
 After that, if needed, train and evaluate more baseline models, then push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc.
 
+After that, if needed, train and evaluate ablation model(s) and push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+After that double-check, fact-check all claims and fix them, make sure everything has citation.
+
+After that, double-check if the results are scientifically sound and accurate using scientific rigor. Make sure nothing, no substantial error in methodology, invalidates the scientific findings. Make sure there is no data leakage, that there are good baselines, controls, confounder analysis, error bars, proper generalization evals, ablations, controlling sensitivity to seed/hyperparams, having big enough samples, good statistical significance, confidence intervals, that there's no p-hacking, no graph crimes, that it's reproducible.
+
 After that, if needed, train and evaluate more ablation models and push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
 
-After that, if needed, train models for seed, hyperparameter, etc. sweeps for testing sensitivity, and push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+After that, if needed, train models by hyperparameter, seed, etc. sweeps for testing sensitivity, and push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+Before you start training a model, push everything to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+After you train each model, push everything to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+After you evaluate each model, push everything to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc.
+
+After that triple-check, fact-check all claims and fix them, make sure there are no factual errors and hallucinations. Make sure everything possible has a citation with a link to the source. 
+
+After that, triple-check if the results are scientifically sound and accurate using scientific rigor. Make sure nothing, no substantial error in methodology, invalidates the scientific findings. Make sure there is no data leakage, that there are good baselines, controls, confounder analysis, error bars, proper generalization evals, ablations, controlling sensitivity to seed/hyperparams, having big enough samples, good statistical significance, confidence intervals, that there's no p-hacking, no graph crimes, that it's reproducible. 
+
+After that, if needed, train and evaluate more models and do the rest, then push it all to GitHub and Hugging Face with the updated detailed paper, results, reports, detailed README.md, website, etc. 
+
+You have a week for training everything.
+
+You have 14 hours for the first training run with one seed, with the simplest useful evals and one or few controls and baselines. If the models don't learn properly, stop and keep trying to fix them until they do. If they need more time for training, give them more time. Its ok if you're over the initial limit and got no good results. The goal is to have at least one interesting good result, but having only negative results is also fine. 
+
+Periodically report: What's the status and progress? What is done, what are you doing now, what is the current state of things, what is not done yet, what is planned? How much of the whole plan is done, and how much of it is left? How long will it take? How long will you wait when you're waiting?
+
+Check progress every 5-minute interval when waiting for a run longer than 10 minutes. 
+
+Check progress every 15-minute interval when waiting for a run longer than 30 minutes.
+
+Check progress every 30-minute interval when waiting for a run longer than an hour. 
 
 ## Logging and comments
 
@@ -262,9 +325,13 @@ Use the current working directory.
 
 ## Machine, permissions and tools
 
+Do as many steps as possible that you can do on your own yourself. If you ever really need me to do something to solve a task, then give me exact step by step instructions on what to run, open, click, etc., what to do, for what you absolutely cannot do yourself. Do it yourself if you can. 
+
 Do not look at the other project folders on this machine; stay only in the current one. 
 
 You can use D:\AI for extra space.
+
+You can use WSL.
 
 You can make a folder in WSL's ~/projects and use it.
 
@@ -274,7 +341,7 @@ You can install anything you need to install to solve your problem. You can use 
 
 If you need to set up anything in a browser or an app, you can use computer use. And if computer use doesn't work, you can ask me. 
 
-## README.md ocs, AGENTS.md, docs, results, paper, experiments, reports, experiment files, paper, HuggingFace card
+## README.md, AGENTS.md, docs, results, paper, experiments, reports, experiment files, paper, HuggingFace card
 
 Make sure everything is updated and up to date according to the codebase and what you did. 
 
@@ -284,6 +351,8 @@ Do not duplicate text. Deduplicate.
 
 Make sure every number comes from a script that reads results files. No hand-typed numbers, and one command regenerates all tables and figures. 
 
+Write as much information from the plan as possible into reports/plan.md and keep updating it. 
+
 ## Final checks
 
 Double-check that you finished everything in the plan.
@@ -292,11 +361,15 @@ Double-check if you followed these instructions.
 
 ## Claude Code
 
+Don't give yourself attribution in commits, issues, and PR messages; don't say generated by Claude Code.
+
 Use Claude Code app visual debugging abilities when needed.
 
 At the bottom of the paper, add an AI statement that you (Claude Code) wrote this codebase and paper, and that human cleanup and rewriting are in progress, while a human provided the exact specification that you executed. Don't mention it in README.md, only in the paper.
 
 ## Codex
+
+Don't give yourself attribution in commits, issues, and PR messages; don't say generated by Codex. 
 
 Use Codex app visual debugging abilities when needed.
 
